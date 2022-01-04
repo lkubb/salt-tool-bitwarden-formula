@@ -1,0 +1,56 @@
+tool:
+  users:
+    user:
+      bitwarden:
+        config:
+          openAtLogin: false
+  bitwarden:
+    users:
+      user:                             # user configuration can also be specified in tool:bitwarden:users
+        bitwarden:
+          config:
+            userEmail: user@wtf.lol
+            passwordGenerationOptions:
+              length: 64
+    defaults:                           # default formula configuration for all users
+      config:
+        biometric: true
+        biometricText: unlockWithTouchId
+        clearClipboardKey: 30
+        enableCloseToTray: true
+        enableStartToTrayKey: true
+        enableTray: true
+        enabledBiometric: true
+        environmentUrls:
+          base: https://pass.fsociety.org
+          api: null
+          events: null
+          icons: null
+          identity: null
+          notifications: null
+          webVault: null
+          forcePasswordReset: false
+        kdf: 0
+        kdfIterations: 100000
+        lockOption: 5
+        noAutoPromptBiometricsText: noAutoPromptTouchId
+        openAtLogin: true
+        passwordGenerationOptions:
+          ambiguous: false
+          capitalize: false
+          includeNumber: false
+          length: 20
+          lowercase: true
+          minLowercase: 0
+          minNumber: 1
+          minSpecial: 1
+          minUppercase: 0
+          numWords: 3
+          number: true
+          special: true
+          type: password
+          uppercase: true
+          wordSeparator: '-'
+          rememberEmail: true
+        theme: null
+        vaultTimeoutAction: lock
