@@ -4,6 +4,9 @@ Sets up and configures Bitwarden Desktop password manager client.
 ## Usage
 Applying `tool-bitwarden` will make sure Bitwarden Desktop is configured as specified.
 
+### MacOS
+If you want to use biometric authentication in the browser extensions, you will need to install Bitwarden from the Mac App Store. You can configure this formula to do that automatically, but it has a dependency on another one of the `tool` formulae: `tool-mas`.
+
 ## Configuration
 ### Pillar
 #### General `tool` architecture
@@ -57,6 +60,7 @@ user:
 ```yaml
 tool:
   bitwarden:
+    macos_appstore: false # on MacOS, install Bitwarden from the Mac App Store, not as cask
     defaults:  # default formula configuration for all users
       config:
         biometric: true
@@ -99,7 +103,6 @@ tool:
           rememberEmail: true
         theme: null
         vaultTimeoutAction: lock
-
 ```
 
 ## Todo
