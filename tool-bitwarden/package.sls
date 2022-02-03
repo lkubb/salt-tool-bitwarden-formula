@@ -14,6 +14,7 @@ Bitwarden is installed:
   {{ installer_module }}.installed:
     - name: "{{ bitwarden.package }}"
 {%- if 'mas' == installer_module %}
+    # sls: tool-mas does not work, seems like the included file needs to have some state itself
     - require:
-        - sls: tool-mas
+        - mas is installed
 {%- endif %}
