@@ -18,6 +18,13 @@
 
 {%- set global_user_settings = ['bitwarden'] %}
 
+{#- Mac App Store version has an isolated environment, this needs Full Disk Access! -#}
+{%- if 'Darwin' == grains.kernel
+    and bitwarden.macos_appstore is defined
+    and bitwarden.macos_appstore %}
+  {%- set default_confdir = '/Library/Containers/com.bitwarden.desktop/Data' + default_confdir %}
+{%- endif %}
+
 {#- rejectattr filter does not fit with mapping. need to filter out users before merging default values -#}
 {%- for tool_user, tool_user_conf in salt['pillar.get']('tool:users', {}).items() -%}
 {#- by default, install tool if it was targeted. explicitly deny for a specific user to override -#}
