@@ -1,7 +1,7 @@
 {%- from 'tool-bitwarden/map.jinja' import bitwarden -%}
 
 include:
-  - .package
+  - {{ slsdotpath }}.package
 
 {%- for user in bitwarden.users | selectattr('bitwarden.config', 'defined') %}
 Bitwarden configuration is synced for user '{{ user.name }}':
@@ -16,5 +16,9 @@ Bitwarden configuration is synced for user '{{ user.name }}':
     - dir_mode: '0700'
     - makedirs: True
     - require:
+  {%- if 'Darwin' == grains.kernel and bitwarden.macos_appstore is defined and bitwarden.macos_appstore %}
+      - Bitwarden is installed for user '{{ user.name }}'
+  {%- else %}
       - Bitwarden is installed
+  {%- endif %}
 {%- endfor %}

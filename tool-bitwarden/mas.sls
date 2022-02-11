@@ -5,7 +5,7 @@ include:
 
 {%- for user in bitwarden.users %}
 
-Bitwarden is installed for user {{ user.name }}:
+Bitwarden is installed for user '{{ user.name }}':
   mas.installed:
     - name: "1352778147"
     - user: {{ user.name }}
