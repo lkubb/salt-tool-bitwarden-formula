@@ -15,12 +15,24 @@ tool:
               length: 64
     defaults:                           # default formula configuration for all users
       config:
+        # Always show in the Dock
+        alwaysShowDock: false
+        # Unlock with [Touch ID/something else?]
         biometric: true
-        biometricText: unlockWithTouchId
+        # Clear Clipboard. seconds to clear after copy, null to disable
         clearClipboardKey: 30
+        # Disable Website Icons
+        disableFavicon: false
+        # Close to menu bar
         enableCloseToTray: true
+        # Minimize to menu bar
+        enableMinimizeToTray: true
+        # Start to menu bar
         enableStartToTrayKey: true
+        # Enable Menu Bar Icon
         enableTray: true
+        # the following is not affected when enabling/disabling unlocking
+        # with biometrics in settings
         enabledBiometric: true
         environmentUrls:
           base: https://pass.fsociety.org
@@ -33,25 +45,51 @@ tool:
           forcePasswordReset: false
         kdf: 0
         kdfIterations: 100000
+        # Vault Timeout
+        # minutes of inactivity until timeout
+        # or: -4 (=system idle) -3 (system sleep) -2 (system lock), -1 (restart), null (never)
         lockOption: 5
-        noAutoPromptBiometricsText: noAutoPromptTouchId
+        # Minimize when copying to clipboard
+        minimizeOnCopyToClipboardKey: false
+        # Do not prompt for Touch ID on launch
+        noAutoPromptBiometrics: false
+        # Start automatically at login (@TODO: check if setting this is sufficient)
         openAtLogin: true
         passwordGenerationOptions:
-          ambiguous: false
-          capitalize: false
-          includeNumber: false
+          # [*] Password [*] Passphrase
+          type: password # or passphrase
+          # password: Length
           length: 20
-          lowercase: true
-          minLowercase: 0
-          minNumber: 1
-          minSpecial: 1
-          minUppercase: 0
-          numWords: 3
-          number: true
-          special: true
-          type: password
+          # password: A-Z
           uppercase: true
+          # password: a-z
+          lowercase: true
+          # password: 0-9
+          number: true
+          # password: !@#$%^&*
+          special: true
+          # password: not available in UI
+          minUppercase: 0
+          # password: not available in UI
+          minLowercase: 0
+          # password: Minimum Numbers
+          minNumber: 1
+          # password: Minimum Special
+          minSpecial: 1
+          # password: Avoid Ambiguous Characters
+          ambiguous: false
+          # passphrase: Number of Words
+          numWords: 3
+          # passphrase: Word Separator
           wordSeparator: '-'
-          rememberEmail: true
-        theme: null
-        vaultTimeoutAction: lock
+          # passphrase: Capitalize
+          capitalize: false
+          # passphrase: Include Number
+          includeNumber: false
+        rememberEmail: true
+        rememberedEmail: elliotalderson@protonmail.ch
+        userEmail: elliotalderson@protonmail.ch
+        # Theme
+        theme: null              # null for Default, else "light", "dark", "nord"
+        # Vault Timeout Action
+        vaultTimeoutAction: lock # lock or logOut
