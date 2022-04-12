@@ -5,6 +5,7 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as bitwarden with context %}
 
+
 Check if snap is available:
   cmd.run:
     - name: which snap
