@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{%- set tplroot = tpldir.split('/')[0] %}
+{%- set tplroot = tpldir.split("/")[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as bitwarden with context %}
-{%- set sls_install = slsdotpath ~ '.' ~ bitwarden.lookup.pkg.manager %}
+{%- set sls_install = slsdotpath ~ "." ~ bitwarden.lookup.pkg.manager %}
 
 include:
   - {{ sls_install }}

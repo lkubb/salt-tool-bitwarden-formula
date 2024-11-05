@@ -68,6 +68,8 @@ values:
     paths:
       confdir: '.config/bitwarden'
       conffile: 'data.json'
+      xdg_dirname: 'bitwarden'
+      xdg_conffile: 'data.json'
     rootgroup: root
   map_jinja:
     sources:
