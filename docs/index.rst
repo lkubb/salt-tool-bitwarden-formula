@@ -1,5 +1,5 @@
-Welcome to salt-tool-bitwarden-formula's documentation!
-=======================================================
+Welcome to tool-bitwarden-formula's documentation!
+==================================================
 
 .. toctree::
    :maxdepth: 2
