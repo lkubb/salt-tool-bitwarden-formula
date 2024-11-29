@@ -34,15 +34,17 @@ user_settings:
     enableStartToTrayKey: true
     enableTray: true
     enabledBiometric: true
-    environmentUrls:
-      api: null
-      base: https://pass.fsociety.org
-      events: null
-      forcePasswordReset: false
-      icons: null
-      identity: null
-      notifications: null
-      webVault: null
+    global_environment_environment:
+      region: Self-hosted
+      urls:
+        api: null
+        base: https://pass.fsociety.org
+        events: null
+        icons: null
+        identity: null
+        keyConnector: null
+        notifications: null
+        webVault: null
     kdf: 0
     kdfIterations: 100000
     lockOption: 5

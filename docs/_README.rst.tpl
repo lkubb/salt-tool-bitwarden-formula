@@ -70,15 +70,17 @@ The following shows an example of ``tool_bitwarden`` per-user configuration. If 
         # the following is not affected when enabling/disabling unlocking
         # with biometrics in settings
         enabledBiometric: true
-        environmentUrls:
-          base: https://pass.fsociety.org
-          api: null
-          events: null
-          icons: null
-          identity: null
-          notifications: null
-          webVault: null
-          forcePasswordReset: false
+        global_environment_environment:
+          region: Self-hosted
+          urls:
+            api: null
+            base: https://pass.fsociety.org
+            events: null
+            icons: null
+            identity: null
+            keyConnector: null
+            notifications: null
+            webVault: null
         kdf: 0
         kdfIterations: 100000
         # Vault Timeout
